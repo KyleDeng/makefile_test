@@ -1,0 +1,5 @@
+
+MODULE_DIR :=
+MODULE_NAME := 
+MODULE_SRC := 
+MODULE_INC := 
