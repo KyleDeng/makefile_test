@@ -18,7 +18,7 @@ endif
 
 
 hello: $(SRC_O)
-	gcc $(patsubst %, $(OUT_PATH)/%, $^) -o $(OUT_PATH)/hello
+	gcc $(patsubst %, $(OUT_PATH)/%, $^) -o $(OUT_PATH)/hello -g
 
 cppcheck: $(SRC_CPPCHECK)
 

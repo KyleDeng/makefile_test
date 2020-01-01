@@ -18,7 +18,7 @@ $(TAG_NAME):PRIVATE_MODULE_INC := $(MODULE_INC)
 $(TAG_NAME):PRIVATE_MODULE_DIR := $(MODULE_DIR)
 
 $(TAG_NAME): $(patsubst %, $(MODULE_DIR)/%, $(MODULE_SRC))
-	gcc -c $^ $(PRIVATE_MODULE_INC) -o $(OUT_PATH)/$@
+	gcc -c $^ $(PRIVATE_MODULE_INC) -o $(OUT_PATH)/$@ -g
 
 
 TAG_NAME := $(MODULE_NAME)_cppcheck
