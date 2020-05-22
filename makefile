@@ -1,7 +1,11 @@
-all: hello
+# makefile
+
 
 OUT_PATH = $(abspath ./output)
 SRC_PATH = $(abspath ./calc)
+FINALL_TAG = $(OUT_PATH)/hello
+
+all: $(FINALL_TAG)
 
 SRC_LIST := 
 
@@ -17,8 +21,8 @@ else
 endif
 
 
-hello: $(SRC_O)
-	gcc $(patsubst %, $(OUT_PATH)/%, $^) -o $(OUT_PATH)/hello -g
+$(FINALL_TAG): $(patsubst %, $(OUT_PATH)/%, $(SRC_O))
+	gcc $^ -o $@ -g
 
 cppcheck: $(SRC_CPPCHECK)
 
@@ -26,7 +30,7 @@ cppcheck_all:
 	cppcheck --enable=all --suppress=missingIncludeSystem \
 	$(patsubst %, -I $(SRC_PATH)/%, $(SRC_LIST)) $(patsubst %, $(SRC_PATH)/%, $(SRC_LIST))
 
-.PHONY: All clean debug
+.PHONY: all clean debug
 
 clean:
 	rm $(OUT_PATH)/*

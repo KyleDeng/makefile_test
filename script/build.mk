@@ -13,12 +13,12 @@
 # MODULE_INC := $(call build_include_path, $(NEED_MOUDLE))
 
 
-TAG_NAME := $(MODULE_NAME).o
+TAG_NAME := $(OUT_PATH)/$(MODULE_NAME).o
 $(TAG_NAME):PRIVATE_MODULE_INC := $(MODULE_INC)
 $(TAG_NAME):PRIVATE_MODULE_DIR := $(MODULE_DIR)
 
 $(TAG_NAME): $(patsubst %, $(MODULE_DIR)/%, $(MODULE_SRC))
-	gcc -c $^ $(PRIVATE_MODULE_INC) -o $(OUT_PATH)/$@ -g
+	gcc -c $^ $(PRIVATE_MODULE_INC) -o $@ -g
 
 
 TAG_NAME := $(MODULE_NAME)_cppcheck
